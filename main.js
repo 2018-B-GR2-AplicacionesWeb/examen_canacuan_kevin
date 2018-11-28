@@ -14,6 +14,7 @@ const leerBDD = new Promise((resolve, reject) => {
 leerBDD
     .then((baseDatos) => {
     console.log('1) Busque los tipos de "gender" en el arreglo people.json');
+    console.log('5) Clasifique y cree diferentes arreglos dependiendo del gender, eye_color, skin y hair_color.');
     const contenidoArchivo = JSON.parse(JSON.stringify(baseDatos));
     let genderM = [];
     let genderF = [];
@@ -57,6 +58,7 @@ leerBDD
     console.log('Existen ' + redEyes.length + ' red eye');
     console.log('Existen ' + brownEyes.length + ' brown eye');
     console.log('Existen ' + othersEyes.length + ' other eye');
+    console.log('\n');
 });
 leerBDD.then((baseDatos) => {
     console.log('3) Busque los tipos de "skin_color" en el arreglo people.json');
@@ -64,6 +66,7 @@ leerBDD.then((baseDatos) => {
     contenidoArchivo.forEach((actual, indiceActual, arreglo) => {
         console.log(actual['skin_color']);
     });
+    console.log('\n');
 });
 leerBDD.then((baseDatos) => {
     console.log('4) Busque los tipos de "hair_color" en el arreglo people.json');
@@ -71,4 +74,31 @@ leerBDD.then((baseDatos) => {
     contenidoArchivo.forEach((actual, indiActual, arrarRespuesta) => {
         console.log(actual['hair_color']);
     });
+    console.log('\n');
+});
+leerBDD.then((baseDatos) => {
+    console.log('6) Cree un arreglo del abecedario, revisar si existe al menos un personaje con cada letra del abecedario');
+    const contenidoArchivo = JSON.parse(JSON.stringify(baseDatos));
+    var abecedario = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+        'z', 'x', 'c', 'v', 'b', 'n', 'm'];
+    contenidoArchivo.forEach((actual, indiActual, arrarRespuesta) => {
+        let nombre = actual['name'];
+    });
+    console.log('\n');
+});
+leerBDD.then((baseDatos) => {
+    console.log('7) Calcular la sumatoria de la propiedad "mass" y la propiedad "height".');
+    const contenidoArchivo = JSON.parse(JSON.stringify(baseDatos));
+    let sumatoriaMass = 0;
+    let sumatoriaHeight = 0;
+    contenidoArchivo.forEach((actual, indiActual, arrarRespuesta) => {
+        let mass = actual['mass'];
+        let height = actual['hegiht'];
+        sumatoriaMass = sumatoriaMass + Double.parseDouble(mass.toString());
+        sumatoriaHeight = sumatoriaHeight + Double.parseDouble(height.toString());
+    });
+    console.log('Sumatoria mass ' + sumatoriaMass);
+    console.log('Sumatoria height ' + sumatoriaHeight);
+    console.log('\n');
 });

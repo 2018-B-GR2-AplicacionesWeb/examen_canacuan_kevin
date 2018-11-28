@@ -112,12 +112,37 @@ leerBDD.then(
     (baseDatos) => {
         console.log('6) Cree un arreglo del abecedario, revisar si existe al menos un personaje con cada letra del abecedario');
         const contenidoArchivo = JSON.parse(JSON.stringify(baseDatos));
-        var abecedario = ['q','w','e'];
+        var abecedario = ['q','w','e','r','t','y','u','i','o','p',
+            'a','s','d','f','g','h','j','k','l',
+            'z','x','c','v','b','n','m'];
         contenidoArchivo.forEach(
             (actual, indiActual, arrarRespuesta) => {
-                console.log(actual['hair_color'])
+                let nombre = actual['name'];
+
             }
         );
+        console.log('\n');
+    }
+);
+
+
+leerBDD.then(
+    (baseDatos) => {
+        console.log('7) Calcular la sumatoria de la propiedad "mass" y la propiedad "height".');
+        const contenidoArchivo = JSON.parse(JSON.stringify(baseDatos));
+        let sumatoriaMass=0;
+        let sumatoriaHeight=0;
+        contenidoArchivo.forEach(
+            (actual, indiActual, arrarRespuesta) => {
+                let mass = actual['mass'];
+                let height = actual['hegiht'];
+                sumatoriaMass = sumatoriaMass + Double.parseDouble(mass.toString());
+                sumatoriaHeight = sumatoriaHeight + Double.parseDouble(height.toString());
+
+            }
+        );
+        console.log('Sumatoria mass ' + sumatoriaMass);
+        console.log('Sumatoria height ' + sumatoriaHeight);
         console.log('\n');
     }
 );
